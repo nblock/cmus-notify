@@ -37,7 +37,7 @@ class cmus(object):
     def get_data(self, key):
         if key in self.data:
             return self.data[key]
-        return "fail"
+        return ""
 
 if __name__ == "__main__":
     c = cmus()
