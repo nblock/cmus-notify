@@ -29,7 +29,7 @@ class cmus(object):
         #correct duration
         dur = int(self.data["duration"])
         self.data["duration"] = str(dur/60) + ":" + str(dur%60)
-        
+    
     # get value per key 
     def get_data(self, key):
         if key in self.data:
@@ -38,7 +38,7 @@ class cmus(object):
 
 if __name__ == "__main__":
     c = cmus()
-    info = "%s - %s  (%s)" % (c.get_data("artist"),c.get_data("title"), c.get_data("album"))
-    outstr= """echo -e 'cmus.text = "<span foreground=\\"orange\\">cmus [%s]: </span><span foreground=\\"green\\"> %s </span>"' | awesome-client""" % (c.get_data("status"), info)
+    info = "%s - %s  (%s)" % (c.get_data("artist").encode('utf-8') ,c.get_data("title").encode('utf-8'), c.get_data("album").encode('utf-8'))
+    outstr= """echo -e 'cmus.text = "<span foreground=\\"orange\\">cmus [%s]: </span><span foreground=\\"green\\"> %s </span>"' | awesome-client""" % (c.get_data("status").encode('utf-8'), info)
     os.system(outstr)
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
