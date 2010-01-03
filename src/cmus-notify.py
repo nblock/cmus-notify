@@ -9,7 +9,7 @@
 """
 a simple script to display cmus' status inside awesome with awesome-client
 
-in cmus: ":set status_display_program=/path/to/cmus-notify.py"
+in cmus: ":set status_display_program=/path/to/cmus-notify.py" to activate the script
 """
 
 import os
