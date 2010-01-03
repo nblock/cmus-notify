@@ -39,6 +39,6 @@ class cmus(object):
 if __name__ == "__main__":
     c = cmus()
     info = "%s - %s  (%s)" % (c.get_data("artist").encode('utf-8') ,c.get_data("title").encode('utf-8'), c.get_data("album").encode('utf-8'))
-    outstr= """echo -e 'cmus.text = "<span foreground=\\"orange\\">cmus [%s]: </span><span foreground=\\"green\\"> %s </span>"' | awesome-client""" % (c.get_data("status").encode('utf-8'), info)
+    outstr= """echo -e 'cmus.text = "<span foreground=\\"orange\\">cmus [%s]: </span><span foreground=\\"green\\">%s</span>"' | awesome-client""" % (c.get_data("status").encode('utf-8'), info)
     os.system(outstr)
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
