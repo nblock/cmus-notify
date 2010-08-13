@@ -3,7 +3,7 @@
 # cmus-notify -- based on cmus-status-display
 # author: nblock <nblock [at] archlinux [dot] us>
 # version: git
-# license: GPLv3
+# license: GPLv2
 ##
 # a simple script to display cmus' status inside awesome with awesome-client
 #
