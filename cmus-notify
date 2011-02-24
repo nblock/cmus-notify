@@ -22,7 +22,7 @@ do
 	shift
 done
 
-START="cmus.text=\"<span foreground='orange'>cmus: </span><span foreground='green'>"
+START="cmus.text=\"<span foreground='orange'>music: </span><span foreground='green'>"
 END='</span>"'
 
 if test -n "$_file"
