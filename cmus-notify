@@ -12,7 +12,10 @@
 
 output()
 {
-	echo "$*" |awesome-client 2>&1
+  local start="cmuswidget:set_markup(\"<span foreground='orange'>music: </span><span foreground='green'>"
+  local end='</span>")'
+  local clean=$(echo "$*" |sed -e 's/[<>&]*//g')
+  echo "${start}${clean}${end}" |awesome-client 2>&1
 }
 
 while test $# -ge 2
@@ -21,9 +24,6 @@ do
 	shift
 	shift
 done
-
-START="cmuswidget:set_markup(\"<span foreground='orange'>music: </span><span foreground='green'>"
-END='</span>")'
 
 if test -n "$_file"
 then
@@ -35,13 +35,13 @@ then
 	duration="$dur$(printf '%02d:%02d' $(($m / 60)) $(($m % 60)))"
 
   if [ -z "$_date" ]; then
-    output "${START}[$_status] $_artist - $_title - $_album [$duration]${END}"
+    output "[$_status] $_artist - $_title - $_album [$duration]"
   else
-    output "${START}[$_status] $_artist - $_title - $_album ($_date) [$duration]${END}"
+    output "[$_status] $_artist - $_title - $_album ($_date) [$duration]"
   fi
 elif test -n "$_url"
 then
-	output "${START}[$_status] $_url - $_title${END}"
+	output "[$_status] $_url - $_title"
 else
-	output "${START}[$_status]${END}"
+	output "[$_status]"
 fi
