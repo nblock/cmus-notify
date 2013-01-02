@@ -12,7 +12,7 @@
 
 output()
 {
-  local start="cmuswidget:set_markup(\"<span foreground='orange'>music: </span><span foreground='green'>"
+  local start="cmuswidget:set_markup(\"<span foreground='orange'>music: </span><span foreground='#00FF04'>"
   local end='</span>")'
   local clean=$(echo "$*" |sed -e 's/[<>&]*//g')
   echo "${start}${clean}${end}" |awesome-client 2>&1
